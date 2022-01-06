@@ -9,7 +9,6 @@
   },
   "scripts": {
     "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'test/**/*.test.ts'",
-    "start:dev": "nodemon",
     "compile": "tsc",
     "build": "rimraf ./dist && tsc"
   },

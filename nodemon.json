@@ -1,0 +1,6 @@
+{
+  "watch": ["nodeFun/src"],
+  "ext": ".ts,.js",
+  "ignore": [],
+  "exec": "ts-node ./nodeFun/src/index.ts"
+}
