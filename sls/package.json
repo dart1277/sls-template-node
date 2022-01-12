@@ -1,0 +1,30 @@
+{
+  "devDependencies": {
+    "dotenv": "^11.0.0",
+    "husky": "^7.0.0",
+    "nodemon": "^2.0.15",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.5.1",
+    "pretty-quick": "^3.1.3",
+    "serverless-dynamodb-local": "^0.2.40",
+    "serverless-offline": "^8.3.1",
+    "serverless-offline-sqs": "^6.0.0",
+    "ts-node": "^10.4.0"
+  },
+  "scripts": {
+    "dev:offline": "sls offline start --port 3000",
+    "start:dev": "nodemon",
+    "install:nodefun": "cd nodefun; npm install; cd ..;",
+    "build:nodefun": "cd nodefun; npm run build; cd ..;",
+    "test:nodefun": "cd nodefun; npm run test; cd ..;",
+    "postinstall": "run-p install:*",
+    "build": "run-p build:*",
+    "test": "run-p test:*",
+    "prepare": "cd ../; husky install;"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}

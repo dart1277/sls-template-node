@@ -120,5 +120,5 @@ commands:
 npm install --save-dev husky
 npm install --save-dev pretty-quick
 npx husky-init
-npx husky set .husky/pre-commit "npx pretty-quick --staged"
+npx husky set .husky/pre-commit "cd $(git rev-parse --show-toplevel)/sls; npx pretty-quick --staged; cd -;" 
 
