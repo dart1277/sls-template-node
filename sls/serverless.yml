@@ -1,5 +1,6 @@
 service: node-sls
 frameworkVersion: '2 || 3'
+variablesResolutionMode: 20210326
 useDotenv: true
 
 provider:
@@ -52,6 +53,8 @@ custom:
       convertEmptyValues: true
     # Uncomment only if you already have a DynamoDB running locally
     noStart: true
+  # asecret: ${ssm:/aws/reference/secretsmanager/my_secret}
+
 
 
 # you can overwrite defaults here
@@ -112,6 +115,8 @@ functions:
     environment:
       fromStage:
         ${env:STAGE_LAMBDA_ENV_VAR}
+      # fromSSM:
+      #   ${self:custom.asecret.val2}
     #   functionEnvVar: 
     #     'Fn::GetAtt': [usersTable, Arn]
     timeout: 10
