@@ -28,7 +28,7 @@ custom:
       foo: "bar"
   dynamodb:
     stages:
-      - dev-disabled
+      - dev
     start:
       port: 8000
       inMemory: true
@@ -206,21 +206,19 @@ resources:
           - arn:aws:iam::aws:policy/AWSXRayDaemonWriteAccess
         Path: /sls/lambda/role/
 
-# resources:
-#   Resources:
-#     usersTable:
-#       Type: AWS::DynamoDB::Table
-#       Properties:
-#         TableName: usersTable
-#         AttributeDefinitions:
-#           - AttributeName: email
-#             AttributeType: S
-#         KeySchema:
-#           - AttributeName: email
-#             KeyType: HASH
-#         ProvisionedThroughput:
-#           ReadCapacityUnits: 1
-#           WriteCapacityUnits: 1
+    usersTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: usersTable
+        AttributeDefinitions:
+          - AttributeName: email
+            AttributeType: S
+        KeySchema:
+          - AttributeName: email
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
 
 # aws dynamodb put-item --table-name usersTable --item '{"email":{"S":"a@bc"}}' --region us-east-1 --profile serverless-admin --endpoint-url http://localhost:8000
 # aws dynamodb get-item --table-name usersTable --key '{"email":{"S":"a@bc"}}' --region us-east-1 --profile serverless-admin --endpoint-url http://localhost:8000
