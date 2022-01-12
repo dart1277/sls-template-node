@@ -122,3 +122,14 @@ npm install --save-dev pretty-quick
 npx husky-init
 npx husky set .husky/pre-commit "cd $(git rev-parse --show-toplevel)/sls; npx pretty-quick --staged; cd -;" 
 
+sls plugin install -n serverless-dynamodb-local
+sls dynamodb install
+sls dynamodb start
+(sls dynamodb migrate)
+
+aws dynamodb put-item --table-name usersTable --item '{"email":{"S":"a@bc"}}' --region us-east-1 --profile serverless-admin --endpoint-url http://localhost:8000
+
+aws dynamodb get-item --table-name usersTable --key '{"email":{"S":"a@bc"}}' --region us-east-1 --profile serverless-admin --endpoint-url http://localhost:8000
+
+aws dynamodb list-tables --endpoint-url http://localhost:8000 --region us-east-1 --profile serverless-admin
+
