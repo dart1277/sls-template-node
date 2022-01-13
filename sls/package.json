@@ -20,7 +20,7 @@
     "postinstall": "run-p install:*",
     "build": "run-p build:*",
     "test": "run-p test:*",
-    "prepare": "cd ../; husky install;"
+    "prepare": "cd ../; husky install; cd -;"
   },
   "husky": {
     "hooks": {
