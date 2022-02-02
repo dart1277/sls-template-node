@@ -1,0 +1,35 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "Debug",
+            "skipFiles": [
+                "<node_internals>/**",
+                "node_modules/**"
+            ],
+            "cwd": "${workspaceRoot}/sls",
+            "runtimeExecutable": "npm",
+            "windows": {
+                "runtimeArgs": ["run", "debug-windows"]
+            },
+            "linux": {
+                "runtimeArgs": ["run", "debug-linux"]
+            },
+            "outFiles": [
+                "${workspaceFolder}/**/dist/*.js"
+            ],
+            "env": {
+                "SLS_STAGE" : "dev"
+            },
+            "port": 6688,
+            "sourceMaps": true,
+            "console": "internalConsole",
+            "outputCapture": "std"
+        }
+    ]
+}
