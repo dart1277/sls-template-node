@@ -26,7 +26,7 @@
             "env": {
                 "SLS_STAGE" : "dev"
             },
-            "port": 6688,
+            "port": 9229,
             "sourceMaps": true,
             "console": "internalConsole",
             "outputCapture": "std"

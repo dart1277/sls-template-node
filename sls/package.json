@@ -21,8 +21,8 @@
     "build": "run-p build:*",
     "test": "run-p test:*",
     "prepare": "cd ../; husky install; cd -;",
-    "debug-linux": "run-p build:* && export SLS_DEBUG=* && node --debug-port 6688 ./node_modules/.bin/serverless offline --lambdaPort 3002 --httpPort 3001 -s $SLS_STAGE",
-    "debug-windows": "SET SLS_DEBUG=* && node --debug-port 6688 %USERPROFILE%\\AppData\\Roaming\\npm\\node_modules\\serverless\\bin\\serverless offline --lambdaPort 3002 --httpPort 3001 -s $SLS_STAGE"
+    "debug-linux": "run-p build:* && export SLS_DEBUG=* && node --debug-port 9229 ./node_modules/.bin/serverless offline --lambdaPort 3002 --httpPort 3001 -s $SLS_STAGE",
+    "debug-windows": "SET SLS_DEBUG=* && node --debug-port 9229 %USERPROFILE%\\AppData\\Roaming\\npm\\node_modules\\serverless\\bin\\serverless offline --lambdaPort 3002 --httpPort 3001 -s $SLS_STAGE"
   },
   "husky": {
     "hooks": {
